@@ -1,5 +1,7 @@
 package Servlets;
 
+import Daos.BandaDao;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +17,9 @@ public class BandaServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        BandaDao bandaDao = new BandaDao();
+        String filter = request.getParameter("filter") == null ? "" : request.getParameter("filter");
+        request.setAttribute("listaBandas",bandaDao.obtenerListaBandas(filter));
         RequestDispatcher view =request.getRequestDispatcher("listaBandas.jsp");
         view.forward(request,response);
     }

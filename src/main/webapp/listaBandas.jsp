@@ -1,4 +1,7 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Beans.Banda" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% ArrayList<Banda> listaBandas = (ArrayList<Banda>) request.getAttribute("listaBandas"); %>
 <html>
     <!--Colocar como value: nombre de la presente página -->
     <jsp:include page="/static/head.jsp">
@@ -26,80 +29,13 @@
                     </thead>
 
                     <tbody>
+                    <%for(Banda banda : listaBandas){%>
                         <tr>
-                            <td>1
-                            </td>
-                            <td>Stuardo Lucho
-                            </td>
-                            <td>Profesor
-                            </td>
-                            <td>stuardo.lucho@pucp.edu.pe
-                            </td>
+                            <td><%=banda.getIdBanda()%></td>
+                            <td><%=banda.getNombre_banda()%></td>
+                            <td><%=banda.getIdlider()%></td>
                         </tr>
-
-                        <tr>
-                            <td>2
-                            </td>
-                            <td>Oscar Diaz
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>diaz.oa@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>3
-                            </td>
-                            <td>Mario Gustavo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a2015@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Rodrigo Adauto
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Álvaro Burga
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Josué López
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td> Alejandro Macedo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-
+                    <%}%>
                     </tbody>
                 </table>
             </div>
